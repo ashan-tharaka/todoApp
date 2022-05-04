@@ -1,25 +1,94 @@
 import logo from './logo.svg';
 import './App.css';
+import {Component} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TodoInput from "./components/TodoInput";
+import {v4 as uuidv4} from "uuid";
+class App extends Component{
+    state={
+        items:[],
+        id:uuidv4(),
+        item:'',
+        editItem: false
+    }
+    handleSubmit=(e)=>{
+        e.preventDefault();
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        const newItem={
+            id:this.state.id,
+            title:this.state.Item,
+        }
+        console.log(newItem);
+        const updatedItems=[...this.state.items,newItem]
+
+        this.setState({
+            items:updatedItems,
+            item:'',
+            id:uuidv4(),
+            editItem: false
+        })
+
+    }
+    clearList=()=>{
+        this.setState(
+            {
+                items:[]
+
+            }
+        )
+    }
+    handleChange=e=>{
+        this.setState(
+            {
+                item:e.target.value
+            }
+        );
+    };
+    handleDelete=id=>{
+        const filterItems=this.state.items.filter(item=>
+            item.id !==id);
+
+        this.setState({
+            items:filterItems,
+
+        })
+
+
+    }
+    handleEdit=id=>{
+        const filterItems=this.state.items.filter(item=>
+            item.id !==id);
+        const selectedItem=this.state.items.find(item=>item.id===id);
+
+        this.setState({
+            items:filterItems,
+            item: selectedItem.title,
+            editItem: true,
+            id:id
+        })
+
+    }
+
+  render() {
+    return(
+        <div className="container">
+            <div className="row">
+                <div className="col-10 mx-auto col-md-8 mt-4">
+                <h1 className="text-capitalize text-center">MyTodo</h1>
+                    <TodoInput
+                    item={this.state.item}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                    editItem={this.state.editItem}
+                    />
+
+                    </div>
+
+
+            </div>
+
+        </div>
+    )
+  }
 }
-
 export default App;
