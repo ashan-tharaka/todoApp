@@ -80,6 +80,9 @@ class App extends Component{
                 <div className="row">
                     <div className="col-10 mx-auto col-md-8 mt-4">
                         <h1 className="text-capitalize text-center">MyTodo</h1>
+                        <br/>
+                        <br/>
+
                         <TodoInput
                             item={this.state.item}
                             handleChange={this.handleChange}
