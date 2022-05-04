@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TodoInput from "./components/TodoInput";
 import {v4 as uuidv4} from "uuid";
+import TodoList from "./components/TodoList";
 class App extends Component{
     state={
         items:[],
@@ -81,6 +81,13 @@ class App extends Component{
                     handleSubmit={this.handleSubmit}
                     editItem={this.state.editItem}
                     />
+                    <TodoList
+                        items={this.state.items}
+                        clearList={this.clearList}
+                        handleDelete={this.handleDelete}
+                        handleEdit={this.handleEdit}
+                    />
+
 
                     </div>
 
