@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import TodoInput from "./components/TodoInput";
 import {v4 as uuidv4} from "uuid";
 import TodoList from "./components/TodoList";
+import './App.css';
+
 class App extends Component{
     state={
         items:[],
@@ -16,7 +18,7 @@ class App extends Component{
 
         const newItem={
             id:this.state.id,
-            title:this.state.Item,
+            title:this.state.item,
         }
         console.log(newItem);
         const updatedItems=[...this.state.items,newItem]
@@ -37,13 +39,16 @@ class App extends Component{
             }
         )
     }
-    handleChange=e=>{
+    handleChange=(e)=>{
         this.setState(
             {
                 item:e.target.value
             }
         );
+
+
     };
+
     handleDelete=id=>{
         const filterItems=this.state.items.filter(item=>
             item.id !==id);
