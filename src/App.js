@@ -91,6 +91,12 @@ class App extends Component{
         })
 
     }
+    handleCopy=id=>{
+        const selectedItem=this.state.items.find(item=>item.id===id);
+        navigator.clipboard.writeText(selectedItem.title);
+
+
+    }
 
     render() {
         return(
@@ -112,6 +118,7 @@ class App extends Component{
                             clearList={this.clearList}
                             handleDelete={this.handleDelete}
                             handleEdit={this.handleEdit}
+                            handleCopy={this.handleCopy}
                         />
 
 

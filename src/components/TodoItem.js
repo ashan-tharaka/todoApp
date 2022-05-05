@@ -5,10 +5,10 @@ export default class TodoItem extends Component
 {
 
     render() {
-        const {title,handleEdit,handleDelete}=this.props;
+        const {title,handleEdit,handleDelete,handleCopy}=this.props;
 
         return (
-            <li className="list-group-item text-capitalize d-flex justify-content-between my-2">
+            <li className="list-group-item  d-flex justify-content-between my-2">
                 <h6>{title}</h6>
                 <div className="todo-icon">
                        <span className="mx-2 text-success" onClick={handleEdit}>
@@ -16,7 +16,11 @@ export default class TodoItem extends Component
 
                        </span>
                     <span className="mx-2 text-danger" onClick={handleDelete}>
-                           <i className="fas fa-trash"/>
+                           <i className="fas fa-trash" />
+
+                       </span>
+                    <span className="mx-2 text-warning" onClick={handleCopy} >
+                           <i className="fas fa-copy"/>
 
                        </span>
 
