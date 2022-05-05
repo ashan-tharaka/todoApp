@@ -21,14 +21,24 @@ class App extends Component{
             title:this.state.item,
         }
         console.log(newItem);
-        const updatedItems=[...this.state.items,newItem]
 
-        this.setState({
-            items:updatedItems,
-            item:'',
-            id:uuidv4(),
-            editItem: false
-        })
+
+        if(newItem.title===""){
+            alert("can't add empty todos");
+
+
+        }
+        else{
+            const updatedItems=[...this.state.items,newItem]
+
+            this.setState({
+                items:updatedItems,
+                item:'',
+                id:uuidv4(),
+                editItem: false
+            })
+        }
+
 
     }
     clearList=()=>{
