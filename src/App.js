@@ -40,12 +40,22 @@ class App extends Component{
 
     }
     clearList=()=>{
-        this.setState(
-            {
-                items:[]
+        if(this.state.items===[]){
+            alert("List is already cleared");
 
-            }
-        )
+        }
+        else
+        {
+            this.setState(
+                {
+                    items:[]
+
+                }
+            )
+            alert("List Cleared");
+
+        }
+
     }
     handleChange=(e)=>{
         this.setState(
