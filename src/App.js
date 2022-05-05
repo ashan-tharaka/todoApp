@@ -40,7 +40,7 @@ class App extends Component{
 
     }
     clearList=()=>{
-        if(this.state.items===[]){
+        if(this.state.items.length===0){
             alert("List is already cleared");
 
         }
