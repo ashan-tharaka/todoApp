@@ -25,8 +25,6 @@ class App extends Component{
 
         if(newItem.title===""){
             alert("can't add empty todos");
-
-
         }
         else{
             const updatedItems=[...this.state.items,newItem]
