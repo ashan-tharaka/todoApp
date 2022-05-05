@@ -105,6 +105,13 @@ class App extends Component{
                     <div className="col-10 mx-auto col-md-8 mt-4">
                         <h1 className="text-capitalize text-center">MyTodo</h1>
                         <br/>
+
+                        <div className="text-center">
+                            <img src="https://beorgapp.com/images/presskit/appicon.png" alt={"appicon"} height="25%" width="15%"/>
+
+                        </div>
+
+                        <br/>
                         <br/>
 
                         <TodoInput
