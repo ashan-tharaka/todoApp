@@ -52,7 +52,7 @@ class App extends Component{
 
                 }
             )
-            alert("List Cleared");
+            alert("List is Cleaning");
 
         }
 
