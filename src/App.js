@@ -95,7 +95,6 @@ class App extends Component{
         const selectedItem=this.state.items.find(item=>item.id===id);
         navigator.clipboard.writeText(selectedItem.title);
 
-
     }
 
     render() {
